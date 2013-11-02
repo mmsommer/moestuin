@@ -2,7 +2,6 @@
   <head>
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootswatch/3.0.0/cosmo/bootstrap.min.css">
-    <link rel="stylesheet" href="starter-template.css">
     <script type="text/javascript" src='https://cdn.firebase.com/v0/firebase.js'></script>
     <script type="text/javascript" src="http://knockoutjs.com/downloads/knockout-3.0.0.js"></script>
     <script type="text/javascript" src="http://hiroshi.github.io/knockoutFire/knockoutfire-0.0.5.js"></script>
@@ -10,25 +9,100 @@
     <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
   </head>
   <body>
-    <script type="text/html" id="plant-template">
+    <script type="text/html" id="bestaandePlant-template"> 
       <tr>
-        <td data-bind="text: naam"></td>
-        <td data-bind="text: soort"></td>
-        <td data-bind="text: zonbehoefte"></td>
-        <td data-bind="text: vakAantal"></td>
-        <td data-bind="text: rijAfstand"></td>
-        <td data-bind="text: oogsttijd"></td>
-        <td data-bind="text: bijzonderheden"></td>
+        <td>
+          <input id="inputNaam" class="form-control" type="text" placeholder="naam" data-bind="value: naam, valueUpdate: 'keyup'"/>
+        </td>
+        <td>
+          <input id="inputSoort" class="form-control" type="text" placeholder="soort" data-bind="value: soort, valueUpdate: 'keyup'"/>
+        </td>
+        <td>
+          <input id="inputZonbehoefte" class="form-control" type="text" placeholder="zonbehoefte" data-bind="value: zonbehoefte, valueUpdate: 'keyup'"/>
+        </td>
+        <td>
+          <input id="inputVakAantal" class="form-control" type="text" placeholder="vakAantal" data-bind="value: vakAantal, valueUpdate: 'keyup'"/>
+        </td>
+        <td>
+          <input id="inputRijAfstand" class="form-control" type="text" placeholder="rijAfstand" data-bind="value: rijAfstand, valueUpdate: 'keyup'"/>
+        </td>
+        <td>
+          <input id="inputOogsttijd" class="form-control" type="text" placeholder="oogsttijd" data-bind="value: oogsttijd, valueUpdate: 'keyup'"/>
+        </td>
+        <td>
+          <textarea id="inputBijzonderheden" class="form-control" placeholder="bijzonderheden" data-bind="value: bijzonderheden, valueUpdate: 'keyup'"></textArea>
+        </td>
+        <td>
+          <button class="btn btn-default" data-bind="click: function(data, event) { data.firebase.remove(); };">Verwijderen</button>
+        </td>
       </tr>
     </script>
-
-    <div class="col-sm-offset-1 col-sm-10">
-
-      <h1>Moestuinplanten</h1>
-
-      <div class="row">
-        <h2 class="row">Bestaande planten</h2>
-      	<table id="planten" class="col-sm-12 table-striped">
+    <script type="text/html" id="nieuwePlant-template">
+      <tr data-bind="with: planten.newItem">
+        <td colspan="8" >
+          <button class="btn btn-default nieuw" onclick="$(this).next('form').show();$(this).hide();">Nieuw</button>
+          <form class="form-horizontal plant" style="display: none;" role="form" data-bind="submit: create">
+            <div class="form-group">
+              <label for="inputNaam" class="col-sm-2 control-label">Naam</label>
+              <div class="col-sm-10">
+                <input id="inputNaam" class="form-control" type="text" placeholder="naam" data-bind="value: naam" value="zomaar een naam"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputSoort" class="col-sm-2 control-label">Soort</label>
+              <div class="col-sm-10">
+                <input id="inputSoort" class="form-control" type="text" placeholder="soort" data-bind="value: soort"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputZonbehoefte" class="col-sm-2 control-label">Zonbehoefte</label>
+              <div class="col-sm-10">
+                <input id="inputZonbehoefte" class="form-control" type="text" placeholder="zonbehoefte" data-bind="value: zonbehoefte"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputVakAantal" class="col-sm-2 control-label">Aantal per vak</label>
+              <div class="col-sm-10">
+                <input id="inputVakAantal" class="form-control" type="text" placeholder="vakAantal" data-bind="value: vakAantal"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputRijAfstand" class="col-sm-2 control-label">Afstand tussen rijen</label>
+              <div class="col-sm-10">
+                <input id="inputRijAfstand" class="form-control" type="text" placeholder="rijAfstand" data-bind="value: rijAfstand"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputOogsttijd" class="col-sm-2 control-label">Duur tot oogsten</label>
+              <div class="col-sm-10">
+                <input id="inputOogsttijd" class="form-control" type="text" placeholder="oogsttijd" data-bind="value: oogsttijd"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputBijzonderheden" class="col-sm-2 control-label">Bijzonderheden</label>
+              <div class="col-sm-10">
+                <textarea id="inputBijzonderheden" class="form-control" placeholder="bijzonderheden" data-bind="value: bijzonderheden"></textArea>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button class="btn btn-primary" type="submit" onclick="$(this).closest('form').hide();$(this).closest('td').find('button').show();">Opslaan</button>
+              </div>
+            </div>
+          </form>
+        </td>
+      </tr>
+    </script>
+    <script type="text/html" id="plant-template">
+      <!-- ko template{ name: 'bestaandePlant-template', foreach: planten } -->
+      <!-- /ko -->
+      <!-- ko template{ name: 'nieuwePlant-template', with: planten } -->
+      <!-- /ko -->
+    </script>
+    <script type="text/html" id="plantenTabel-template">
+      <h1>Moestuinplanten</h1> 
+      <div class="row table-responsive">
+        <table class="col-sm-12 table table-striped">
           <thead>
             <tr>
               <th>Naam</th>
@@ -38,72 +112,23 @@
               <th>Afstand in rijen</th>
               <th>Duur tot oogsten</th>
               <th>Extra bijzonderheden</th>
+              <th/>
             </tr>
           </thead>
-          <tbody data-bind="template{ name: 'plant-template', foreach: planten }">
+          <tbody data-bind="template{ name: 'plant-template', with: planten }">
           </tbody>
         </table>
       </div>
+    </script>
 
-      <div class="row" style="margin-top: 20px;">
-        <h2 class="row">Nieuwe plant toevoegen</h2>
-        <div class="col-sm-12">
-          <form class="form-horizontal plant" role="form">
-            <div class="form-group">
-              <label for="inputNaam" class="col-sm-2 control-label">Naam</label>
-              <div class="col-sm-10">
-                <input id="inputNaam" class="form-control" type="text" placeholder="naam"/>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="inputSoort" class="col-sm-2 control-label">Soort</label>
-              <div class="col-sm-10">
-                <input id="inputSoort" class="form-control" type="text" placeholder="soort"/>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="inputZonbehoefte" class="col-sm-2 control-label">Zonbehoefte</label>
-              <div class="col-sm-10">
-                <input id="inputZonbehoefte" class="form-control" type="text" placeholder="zonbehoefte"/>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="inputVakAantal" class="col-sm-2 control-label">Aantal per vak</label>
-              <div class="col-sm-10">
-                <input id="inputVakAantal" class="form-control" type="text" placeholder="vakAantal"/>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="inputRijAfstand" class="col-sm-2 control-label">Afstand tussen rijen</label>
-              <div class="col-sm-10">
-                <input id="inputRijAfstand" class="form-control" type="text" placeholder="rijAfstand"/>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="inputOogsttijd" class="col-sm-2 control-label">Duur tot oogsten</label>
-              <div class="col-sm-10">
-                <input id="inputOogsttijd" class="form-control" type="text" placeholder="oogsttijd"/>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="inputBijzonderheden" class="col-sm-2 control-label">Bijzonderheden</label>
-              <div class="col-sm-10">
-                <textarea id="inputBijzonderheden" class="form-control" placeholder="bijzonderheden"></textArea>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="col-sm-offset-2 col-sm-10">
-                <button class="btn btn-default toevoegen">Toevoegen</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
+    <div class="col-sm-offset-1 col-sm-10">
+      <div class="row" id="planten" data-bind="template{ name: 'plantenTabel-template', with: planten}"></div>
     </div>
     <script>
       var firebase = new Firebase('https://mijnmoestuin.firebaseio.com/');    
       var viewModel = KnockoutFire.observable(firebase, {
         planten: {
+          ".newItem": true,
           "$plant": {
             naam: true,
             soort: true,
@@ -111,26 +136,12 @@
             vakAantal: true,
             rijAfstand: true,
             oogsttijd: true,
-            bijzonderheden: true,
+            bijzonderheden: true
           }
         }  
       });
 
 		  ko.applyBindings(viewModel, document.getElementById("planten"));
-
-      $('.plant .toevoegen').on('click', function () {
-        var nieuw = {
-          naam: $('.plant [placeholder=naam]').val(),
-          soort: $('.plant [placeholder=soort]').val(),
-          zonbehoefte: $('.plant [placeholder=zonbehoefte]').val(),
-          vakAantal: $('.plant [placeholder=vakAantal]').val(),
-          rijAfstand: $('.plant [placeholder=rijAfstand]').val(),
-          oogsttijd: $('.plant [placeholder=oogsttijd]').val(),
-          bijzonderheden: $('.plant [placeholder=bijzonderheden]').val()
-        };
-        firebase.child('planten').push(nieuw);
-        $('.plant [placeholder]').val('');
-      });
     </script>
   </body>
 </html>
