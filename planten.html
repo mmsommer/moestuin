@@ -38,42 +38,71 @@
       </tr>
     </script>
     <script type="text/html" id="nieuwePlant-template">
-      <tr>
-        <td>
-          <input id="inputNaam" class="form-control" type="text" placeholder="naam" data-bind="value: naam"/>
-        </td>
-        <td>
-          <input id="inputSoort" class="form-control" type="text" placeholder="soort" data-bind="value: soort"/>
-        </td>
-        <td>
-          <input id="inputZonbehoefte" class="form-control" type="text" placeholder="zonbehoefte" data-bind="value: zonbehoefte"/>
-        </td>
-        <td>
-          <input id="inputVakAantal" class="form-control" type="text" placeholder="vakAantal" data-bind="value: vakAantal"/>
-        </td>
-        <td>
-          <input id="inputRijAfstand" class="form-control" type="text" placeholder="rijAfstand" data-bind="value: rijAfstand"/>
-        </td>
-        <td>
-          <input id="inputOogsttijd" class="form-control" type="text" placeholder="oogsttijd" data-bind="value: oogsttijd"/>
-        </td>
-        <td>
-          <textarea id="inputBijzonderheden" class="form-control" placeholder="bijzonderheden" data-bind="value: bijzonderheden"></textArea>
-        </td>
-        <td>
-          <button class="btn btn-default submit">Toevoegen</button>
+      <tr data-bind="with: planten.newItem">
+        <td colspan="8" >
+          <button class="btn btn-default nieuw" onclick="$(this).next('form').show();$(this).hide();">Nieuw</button>
+          <form class="form-horizontal plant" style="display: none;" role="form" data-bind="submit: create">
+            <div class="form-group">
+              <label for="inputNaam" class="col-sm-2 control-label">Naam</label>
+              <div class="col-sm-10">
+                <input id="inputNaam" class="form-control" type="text" placeholder="naam" data-bind="value: naam" value="zomaar een naam"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputSoort" class="col-sm-2 control-label">Soort</label>
+              <div class="col-sm-10">
+                <input id="inputSoort" class="form-control" type="text" placeholder="soort" data-bind="value: soort"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputZonbehoefte" class="col-sm-2 control-label">Zonbehoefte</label>
+              <div class="col-sm-10">
+                <input id="inputZonbehoefte" class="form-control" type="text" placeholder="zonbehoefte" data-bind="value: zonbehoefte"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputVakAantal" class="col-sm-2 control-label">Aantal per vak</label>
+              <div class="col-sm-10">
+                <input id="inputVakAantal" class="form-control" type="text" placeholder="vakAantal" data-bind="value: vakAantal"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputRijAfstand" class="col-sm-2 control-label">Afstand tussen rijen</label>
+              <div class="col-sm-10">
+                <input id="inputRijAfstand" class="form-control" type="text" placeholder="rijAfstand" data-bind="value: rijAfstand"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputOogsttijd" class="col-sm-2 control-label">Duur tot oogsten</label>
+              <div class="col-sm-10">
+                <input id="inputOogsttijd" class="form-control" type="text" placeholder="oogsttijd" data-bind="value: oogsttijd"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputBijzonderheden" class="col-sm-2 control-label">Bijzonderheden</label>
+              <div class="col-sm-10">
+                <textarea id="inputBijzonderheden" class="form-control" placeholder="bijzonderheden" data-bind="value: bijzonderheden"></textArea>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button class="btn btn-primary" type="submit" onclick="$(this).closest('form').hide();$(this).closest('td').find('button').show();">Opslaan</button>
+              </div>
+            </div>
+          </form>
         </td>
       </tr>
     </script>
     <script type="text/html" id="plant-template">
       <!-- ko template{ name: 'bestaandePlant-template', foreach: planten } -->
       <!-- /ko -->
-      <!-- ko template{ name: 'nieuwePlant-template', with: planten.newItem } -->
+      <!-- ko template{ name: 'nieuwePlant-template', with: planten } -->
       <!-- /ko -->
     </script>
     <script type="text/html" id="plantenTabel-template">
       <h1>Moestuinplanten</h1> 
-        <table class="col-sm-12 table-striped">
+      <div class="row table-responsive">
+        <table class="col-sm-12 table table-striped">
           <thead>
             <tr>
               <th>Naam</th>
@@ -89,7 +118,7 @@
           <tbody data-bind="template{ name: 'plant-template', with: planten }">
           </tbody>
         </table>
-      </form>
+      </div>
     </script>
 
     <div class="col-sm-offset-1 col-sm-10">
