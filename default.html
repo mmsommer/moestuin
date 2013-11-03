@@ -1,0 +1,122 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootswatch/3.0.0/cosmo/bootstrap.min.css">
+    <script type="text/javascript" src='https://cdn.firebase.com/v0/firebase.js'></script>
+    <script type="text/javascript" src="http://knockoutjs.com/downloads/knockout-3.0.0.js"></script>
+    <script type="text/javascript" src="http://hiroshi.github.io/knockoutFire/knockoutfire-0.0.5.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <script type="text/html" id="moestuin-template">
+      breedte: <span data-bind="text: breedte"></span>
+      diepte: <span data-bind="text: diepte"></span> 
+      <table style="width: 320px; height: 320px;" class="table table-bordered">
+        <tbody data-bind="foreach: new Array(4)">
+          <tr style="height: 80px;" data-bind="foreach: new Array(4)">
+            <td style="width: 80px;">
+              x: <span data-bind="text: $index"></span>
+              y: <span data-bind="text: $parentContext.$index"></span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </script>
+    <script type="text/html" id="bestaandeMoestuin-template">
+      <tr>
+        <td>
+          <input id="inputNaam" class="form-control" type="text" placeholder="naam" data-bind="value: naam, valueUpdate: 'keyup'"/>
+        </td>
+        <td>
+          <button class="btn btn-default" data-bind="click: function(data, event) { ko.applyBindings(data, document.getElementById('moestuin')) }">Tonen</button>
+        </td>
+        <td>
+          <input id="inputBreedte" class="form-control" type="number" placeholder="breedte" data-bind="value: breedte, valueUpdate: 'keyup'"/>
+        </td>
+        <td>
+          <input id="inputDiepte" class="form-control" type="number" placeholder="diepte" data-bind="value: diepte, valueUpdate: 'keyup'"/>
+        </td>
+        <td>
+          <button class="btn btn-default" data-bind="click: function(data, event) { data.firebase.remove(); };">Verwijderen</button>
+        </td>
+       </tr> 
+    </script>
+    <script type="text/html" id="nieuweMoestuin-template">
+      <tr data-bind="with: moestuinen.newItem">
+        <td colspan="4">
+          <button class="btn btn-default nieuw" onclick="$(this).next('form').show();$(this).hide();">Nieuw</button>
+          <form class="form-horizontal" style="display: none;" role="form" data-bind="submit: create">
+            <div class="form-group">
+              <label for="inputNaam" class="col-sm-2 control-label">Naam</label>
+              <div class="col-sm-10">
+                <input id="inputNaam" class="form-control" type="text" placeholder="naam" data-bind="value: naam"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputBreedte" class="col-sm-2 control-label">Breedte (in vakken)</label>
+              <div class="col-sm-10">
+                <input id="inputBreedte" class="form-control" type="number" placeholder="breedte" data-bind="value: breedte"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputDiepte" class="col-sm-2 control-label">Diepte (in vakken)</label>
+              <div class="col-sm-10">
+                <input id="inputDiepte" class="form-control" type="number" placeholder="diepte" data-bind="value: diepte"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button class="btn btn-primary" type="submit" onclick="$(this).closest('form').hide();$(this).closest('td').find('button').show();">Opslaan</button>
+              </div>
+            </div>
+          </form>
+        </td>
+      </tr>
+    </script>
+
+    <div class="col-sm-offset-1 col-sm-10">
+
+      <h1>Mijn moestuinen</h1>
+
+      <div class="row">
+        <table class="col-sm-12 table table-striped" id="moestuinen">
+          <thead>
+            <tr>
+              <th>Naam</th>
+              <th>Breedte (in vakken)</th>
+              <th>Diepte (in vakken)</th>
+              <th/>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- ko template{ name: 'bestaandeMoestuin-template', foreach: moestuinen } -->
+            <!-- /ko -->
+            <!-- ko template{ name: 'nieuweMoestuin-template', with: moestuinen } -->
+            <!-- /ko -->
+          </tbody>
+        </table>
+      </div>
+      <div class="row" id="moestuin">
+      <!-- ko template{ name: 'moestuin-template', with: moestuin} -->
+      <!-- /ko -->
+      </div>
+    </div>
+    <script>
+      var firebase = new Firebase('https://mijnmoestuin.firebaseio.com/');  
+      var moestuinenRef = firebase.child('gebruikers/0');
+      var viewModel = KnockoutFire.observable(moestuinenRef, {
+        moestuinen: {
+          ".newItem": true,
+          "$moestuin": {
+            naam: true,
+            breedte: true,
+            diepte: true
+          }
+        }  
+      });
+
+      ko.applyBindings(viewModel, document.getElementById("moestuinen"));
+    </script>
+  </body>
+</html>

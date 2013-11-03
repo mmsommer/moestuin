@@ -41,11 +41,11 @@
       <tr data-bind="with: planten.newItem">
         <td colspan="8" >
           <button class="btn btn-default nieuw" onclick="$(this).next('form').show();$(this).hide();">Nieuw</button>
-          <form class="form-horizontal plant" style="display: none;" role="form" data-bind="submit: create">
+          <form class="form-horizontal" style="display: none;" role="form" data-bind="submit: create">
             <div class="form-group">
               <label for="inputNaam" class="col-sm-2 control-label">Naam</label>
               <div class="col-sm-10">
-                <input id="inputNaam" class="form-control" type="text" placeholder="naam" data-bind="value: naam" value="zomaar een naam"/>
+                <input id="inputNaam" class="form-control" type="text" placeholder="naam" data-bind="value: naam"/>
               </div>
             </div>
             <div class="form-group">
@@ -93,12 +93,6 @@
         </td>
       </tr>
     </script>
-    <script type="text/html" id="plant-template">
-      <!-- ko template{ name: 'bestaandePlant-template', foreach: planten } -->
-      <!-- /ko -->
-      <!-- ko template{ name: 'nieuwePlant-template', with: planten } -->
-      <!-- /ko -->
-    </script>
     <script type="text/html" id="plantenTabel-template">
       <h1>Moestuinplanten</h1> 
       <div class="row table-responsive">
@@ -115,7 +109,11 @@
               <th/>
             </tr>
           </thead>
-          <tbody data-bind="template{ name: 'plant-template', with: planten }">
+          <tbody>
+            <!-- ko template{ name: 'bestaandePlant-template', foreach: planten } -->
+            <!-- /ko -->
+            <!-- ko template{ name: 'nieuwePlant-template', with: planten } -->
+            <!-- /ko -->
           </tbody>
         </table>
       </div>
