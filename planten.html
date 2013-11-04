@@ -126,16 +126,15 @@
       var firebase = new Firebase('https://mijnmoestuin.firebaseio.com/');    
       var viewModel = KnockoutFire.observable(firebase, {
         planten: {
-          // ".newItem": {
-          //   naam: true,
-          //   soort: true,
-          //   zonbehoefte: true,
-          //   vakAantal: true,
-          //   rijAfstand: true,
-          //   oogsttijd: true,
-          //   bijzonderheden: true
-          // },
-          ".newItem": true,
+          ".newItem": {
+            naam: true,
+            soort: true,
+            zonbehoefte: true,
+            vakAantal: true,
+            rijAfstand: true,
+            oogsttijd: true,
+            bijzonderheden: true
+          },
           "$plant": {
             naam: true,
             soort: true,
@@ -147,27 +146,6 @@
           }
         }  
       });
-
-      // function PlantViewModel(){
-      //   var self = this;
-
-      //   self.naam = ko.observable();
-      //   self.soort = ko.observable();
-      //   self.zonbehoefte = ko.observable();
-      //   self.vakAantal = ko.observable();
-      //   self.rijAfstand = ko.observable();
-      //   self.oogsttijd = ko.observable();
-      //   self.bijzonderheden = ko.observable();
-      // };
-
-      // function PlantenViewModel(){
-      //   var self = this;
-
-      //   self.planten = ko.observableArray();
-      //   self.newItem = new PlantViewModel();
-      // };
-
-      // var viewModel = new PlantenViewModel();
 
 		  ko.applyBindings(viewModel, document.getElementById("planten"));
     </script>
