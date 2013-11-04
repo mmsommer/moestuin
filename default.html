@@ -84,6 +84,7 @@
           <thead>
             <tr>
               <th>Naam</th>
+              <th/>
               <th>Breedte (in vakken)</th>
               <th>Diepte (in vakken)</th>
               <th/>
@@ -107,7 +108,11 @@
       var moestuinenRef = firebase.child('gebruikers/0');
       var viewModel = KnockoutFire.observable(moestuinenRef, {
         moestuinen: {
-          ".newItem": true,
+          ".newItem": {
+            naam: true,
+            breedte: true,
+            diepte: true,
+          },
           "$moestuin": {
             naam: true,
             breedte: true,
