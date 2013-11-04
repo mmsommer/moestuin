@@ -1,0 +1,465 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"getv",
+				"getValues"
+			],
+			[
+				"data",
+				"data-bind"
+			],
+			[
+				"btn",
+				"btn-default"
+			],
+			[
+				"rij",
+				"rijAfstand"
+			],
+			[
+				"vak",
+				"vakAantal"
+			],
+			[
+				"feed",
+				"dummyFeedbackViewModel"
+			],
+			[
+				"jq",
+				"jqXHR"
+			],
+			[
+				"error",
+				"errorThrown"
+			],
+			[
+				"i18",
+				"i18n"
+			],
+			[
+				"i18n",
+				"i18nUrl"
+			],
+			[
+				"pre",
+				"PrefixAllPropertiesWith"
+			],
+			[
+				"remov",
+				"removePrefixFromAllProperties"
+			],
+			[
+				"pro",
+				"property"
+			],
+			[
+				"set",
+				"setData"
+			],
+			[
+				"project",
+				"projectSettingsValidator"
+			],
+			[
+				"proje",
+				"projectSettingsFocusObserver"
+			],
+			[
+				"pip",
+				"pipeNetworkFocusObserver"
+			],
+			[
+				"pipe",
+				"pipeNetworkFocusObserver"
+			],
+			[
+				"proj",
+				"projectSettingsFocusFieldViewModel"
+			],
+			[
+				"get",
+				"getPNClasses"
+			],
+			[
+				"mar",
+				"materialsGetUri"
+			],
+			[
+				"pipeNetworkd",
+				"pipeNetworkDataViewModel"
+			],
+			[
+				"pipenet",
+				"PipeNetworkModel"
+			],
+			[
+				"cre",
+				"createModelFieldSelect"
+			],
+			[
+				"createM",
+				"createModelSelectInput"
+			],
+			[
+				"con",
+				"ConsumerMaterial"
+			],
+			[
+				"projectSettingsv",
+				"projectSettingsValidationViewModel"
+			],
+			[
+				"prje",
+				"projectSettingsDataViewModel"
+			],
+			[
+				"is",
+				"IsOutdoorNetwork"
+			],
+			[
+				"Is",
+				"IsWarmWaterNetwork"
+			],
+			[
+				"event",
+				"eventName"
+			],
+			[
+				"projectse",
+				"projectSettingsIdOrGetUri"
+			],
+			[
+				"projectsettingsval",
+				"projectSettingsValidationViewModel"
+			],
+			[
+				"projectsettingsva",
+				"projectSettingsValidationMessagesFilter"
+			],
+			[
+				"projectsetting",
+				"projectSettingsValidator"
+			],
+			[
+				"projec",
+				"ProjectSettingsModel"
+			],
+			[
+				"projectset",
+				"projectSettingsValidationViewModel"
+			],
+			[
+				"projectSettingsVlida",
+				"projectSettingsModelValidator"
+			],
+			[
+				"projects",
+				"ProjectSettingsModel"
+			],
+			[
+				"projectSe",
+				"projectSettingsDataViewModel"
+			],
+			[
+				"projectsettingsv",
+				"projectSettingsDataViewModel"
+			],
+			[
+				"pr",
+				"projectSettingsValidationViewModel"
+			],
+			[
+				"Proje",
+				"projectSettingsDataViewModel"
+			],
+			[
+				"PipeNetwork",
+				"pipeNetworkDataViewModel"
+			],
+			[
+				"formda",
+				"formDataProjectSettingsViewModel"
+			],
+			[
+				"FOrm",
+				"FormDataPipeNetworkViewModel"
+			],
+			[
+				"model",
+				"modelRadioInput"
+			],
+			[
+				"tri",
+				"triggerUpdate"
+			],
+			[
+				"cread",
+				"createModelRadioInput"
+			],
+			[
+				"option",
+				"optionNodes"
+			],
+			[
+				"la",
+				"label"
+			],
+			[
+				"co",
+				"ConsumerMaterial"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "<html>\n  <head>\n    <link rel=\"stylesheet\" href=\"http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css\">\n    <link rel=\"stylesheet\" href=\"http://netdna.bootstrapcdn.com/bootswatch/3.0.0/cosmo/bootstrap.min.css\">\n    <script type=\"text/javascript\" src='https://cdn.firebase.com/v0/firebase.js'></script>\n    <script type=\"text/javascript\" src=\"http://knockoutjs.com/downloads/knockout-3.0.0.js\"></script>\n    <script type=\"text/javascript\" src=\"http://hiroshi.github.io/knockoutFire/knockoutfire-0.0.5.js\"></script>\n    <script type=\"text/javascript\" src=\"http://code.jquery.com/jquery-2.0.3.min.js\"></script>\n    <script type=\"text/javascript\" src=\"http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js\"></script>\n  </head>\n  <body>\n    <script type=\"text/html\" id=\"plant-template\">\n      <tr>\n        <td data-bind=\"text: naam\"></td>\n        <td data-bind=\"text: soort\"></td>\n        <td data-bind=\"text: zonbehoefte\"></td>\n        <td data-bind=\"text: vakAantal\"></td>\n        <td data-bind=\"text: rijAfstand\"></td>\n        <td data-bind=\"text: oogsttijd\"></td>\n        <td data-bind=\"text: bijzonderheden\"></td>\n        <td><button class=\"button btn-default\" data-bind=\"event: { click: edit }\">aanpassen</button></td>\n      </tr>\n    </script>\n\n    <div class=\"col-sm-offset-1 col-sm-10\">\n\n      <h1>Moestuinplanten</h1>\n\n      <div class=\"row\">\n        <h2 class=\"row\">Bestaande planten</h2>\n      	<table id=\"planten\" class=\"col-sm-12 table-striped\">\n          <thead>\n            <tr>\n              <th>Naam</th>\n              <th>Soortnaam</th>\n              <th>Zonbehoefte</th>\n              <th>Aantal per vak</th>\n              <th>Afstand in rijen</th>\n              <th>Duur tot oogsten</th>\n              <th>Extra bijzonderheden</th>\n              <th/>\n            </tr>\n          </thead>\n          <tbody data-bind=\"template{ name: 'plant-template', foreach: planten }\">\n          </tbody>\n        </table>\n      </div>\n\n      <div id=\"nieuw\" class=\"row\" style=\"margin-top: 20px;\">\n        <h2 class=\"row\">Nieuwe plant toevoegen</h2>\n        <div class=\"col-sm-12\">\n          <form class=\"form-horizontal\" role=\"form\">\n            <div class=\"form-group\">\n              <label for=\"inputNaam\" class=\"col-sm-2 control-label\">Naam</label>\n              <div class=\"col-sm-10\">\n                <input id=\"inputNaam\" class=\"form-control\" type=\"text\" placeholder=\"naam\"/>\n              </div>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"inputSoort\" class=\"col-sm-2 control-label\">Soort</label>\n              <div class=\"col-sm-10\">\n                <input id=\"inputSoort\" class=\"form-control\" type=\"text\" placeholder=\"soort\"/>\n              </div>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"inputZonbehoefte\" class=\"col-sm-2 control-label\">Zonbehoefte</label>\n              <div class=\"col-sm-10\">\n                <input id=\"inputZonbehoefte\" class=\"form-control\" type=\"text\" placeholder=\"zonbehoefte\"/>\n              </div>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"inputVakAantal\" class=\"col-sm-2 control-label\">Aantal per vak</label>\n              <div class=\"col-sm-10\">\n                <input id=\"inputVakAantal\" class=\"form-control\" type=\"text\" placeholder=\"vakAantal\"/>\n              </div>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"inputRijAfstand\" class=\"col-sm-2 control-label\">Afstand tussen rijen</label>\n              <div class=\"col-sm-10\">\n                <input id=\"inputRijAfstand\" class=\"form-control\" type=\"text\" placeholder=\"rijAfstand\"/>\n              </div>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"inputOogsttijd\" class=\"col-sm-2 control-label\">Duur tot oogsten</label>\n              <div class=\"col-sm-10\">\n                <input id=\"inputOogsttijd\" class=\"form-control\" type=\"text\" placeholder=\"oogsttijd\"/>\n              </div>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"inputBijzonderheden\" class=\"col-sm-2 control-label\">Bijzonderheden</label>\n              <div class=\"col-sm-10\">\n                <textarea id=\"inputBijzonderheden\" class=\"form-control\" placeholder=\"bijzonderheden\"></textArea>\n              </div>\n            </div>\n            <div class=\"form-group\">\n              <div class=\"col-sm-offset-2 col-sm-10\">\n                <button class=\"btn btn-default toevoegen\">Toevoegen</button>\n              </div>\n            </div>\n          </form>\n        </div>\n      </div>\n\n      <div id=\"wijzigen\" class=\"row\" style=\"margin-top: 20px;\">\n        <h2 class=\"row\">Plant aanpassen</h2>\n        <div class=\"col-sm-12\">\n          <form class=\"form-horizontal\" role=\"form\">\n            <input id=\"inputData\" type=\"hidden\" placeholder=\"data\"/>\n            <div class=\"form-group\">\n              <label for=\"inputNaam\" class=\"col-sm-2 control-label\">Naam</label>\n              <div class=\"col-sm-10\">\n                <input id=\"inputNaam\" class=\"form-control\" type=\"text\" placeholder=\"naam\"/>\n              </div>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"inputSoort\" class=\"col-sm-2 control-label\">Soort</label>\n              <div class=\"col-sm-10\">\n                <input id=\"inputSoort\" class=\"form-control\" type=\"text\" placeholder=\"soort\"/>\n              </div>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"inputZonbehoefte\" class=\"col-sm-2 control-label\">Zonbehoefte</label>\n              <div class=\"col-sm-10\">\n                <input id=\"inputZonbehoefte\" class=\"form-control\" type=\"text\" placeholder=\"zonbehoefte\"/>\n              </div>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"inputVakAantal\" class=\"col-sm-2 control-label\">Aantal per vak</label>\n              <div class=\"col-sm-10\">\n                <input id=\"inputVakAantal\" class=\"form-control\" type=\"text\" placeholder=\"vakAantal\"/>\n              </div>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"inputRijAfstand\" class=\"col-sm-2 control-label\">Afstand tussen rijen</label>\n              <div class=\"col-sm-10\">\n                <input id=\"inputRijAfstand\" class=\"form-control\" type=\"text\" placeholder=\"rijAfstand\"/>\n              </div>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"inputOogsttijd\" class=\"col-sm-2 control-label\">Duur tot oogsten</label>\n              <div class=\"col-sm-10\">\n                <input id=\"inputOogsttijd\" class=\"form-control\" type=\"text\" placeholder=\"oogsttijd\"/>\n              </div>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"inputBijzonderheden\" class=\"col-sm-2 control-label\">Bijzonderheden</label>\n              <div class=\"col-sm-10\">\n                <textarea id=\"inputBijzonderheden\" class=\"form-control\" placeholder=\"bijzonderheden\"></textArea>\n              </div>\n            </div>\n            <div class=\"form-group\">\n              <div class=\"col-sm-offset-2 col-sm-10\">\n                <button class=\"btn btn-default opslaan\">Opslaan</button>\n              </div>\n            </div>\n          </form>\n        </div>\n      </div>\n\n    </div>\n    <script>\n      var firebase = new Firebase('https://mijnmoestuin.firebaseio.com/');    \n      var viewModel = KnockoutFire.observable(firebase, {\n        planten: {\n          \"$plant\": {\n            naam: true,\n            soort: true,\n            zonbehoefte: true,\n            vakAantal: true,\n            rijAfstand: true,\n            oogsttijd: true,\n            bijzonderheden: true\n          }\n        }  \n      });\n\n		  ko.applyBindings(viewModel, document.getElementById(\"planten\"));\n\n      $('#nieuw .toevoegen').on('click', function () {\n        var nieuw = getValues($('#nieuw'));\n        firebase.child('planten').push(nieuw);\n        clearValues($('#nieuw'));\n        $('#nieuw').show();\n      });\n\n      $('#wijzigen .opslaan').on('click', function(){\n        var update = getValues($('#wijzigen'));\n        firebase.child('planten').update(update);\n        clearValues($('#nieuw'));\n        $('#nieuw').show();\n      });\n\n      function getValues(element){\n        return {\n          naam: $(element).find('[placeholder=naam]').val(),\n          soort: $(element).find('[placeholder=soort]').val(),\n          zonbehoefte: $(element).find('[placeholder=zonbehoefte]').val(),\n          vakAantal: $(element).find('[placeholder=vakAantal]').val(),\n          rijAfstand: $(element).find('[placeholder=rijAfstand]').val(),\n          oogsttijd: $(element).find('[placeholder=oogsttijd]').val(),\n          bijzonderheden: $(element).find('[placeholder=bijzonderheden]').val()\n        };\n      };\n\n      function setValues(element, data){\n        $(element).find('button.opslaan').on('click', function(){\n          var update = updateValues(element, data);\n          firebase.child('planten').update(update);\n          clearValues($('#nieuw'));\n          $('#nieuw').show();\n        });\n        $(element).find('[placeholder=naam]').val(data.naam);\n        $(element).find('[placeholder=soort]').val(data.soort);\n        $(element).find('[placeholder=zonbehoefte]').val(data.zonbehoefte);\n        $(element).find('[placeholder=vakAantal]').val(data.vakAantal);\n        $(element).find('[placeholder=rijAfstand]').val(data.rijAfstand);\n        $(element).find('[placeholder=oogsttijd]').val(data.oogsttijd);\n        $(element).find('[placeholder=bijzonderheden]').val(data.bijzonderheden);\n      };\n\n      function clearValues(element){\n        $(element).find('[placeholder]').val('');\n      };\n\n      function edit(data){\n        setValues($('#wijzigen'), data);\n        $('#nieuw').hide();\n        $('#wijzigen').show();\n      };\n    </script>\n  </body>\n</html>",
+			"file": "planten.html",
+			"file_size": 9708,
+			"file_write_time": 130274271648804130,
+			"settings":
+			{
+				"buffer_size": 9868,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/GreenvisNetworksDomein/js/app/stap3/controllers/stringToId.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/GreenvisNetworksDomein/js/app/stap3/app.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/GreenvisNetworksDomein/js/app/stap3/view.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/GreenvisNetworksDomein/js/app/stap1/app.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/GreenvisNetworksDomein/js/app/stap4/app.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/GreenvisNetworksDomein/js/app/stap5/app.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/GreenvisNetworksDomein/js/app/admin/materials/edit/app.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/GreenvisNetworksDomein/js/app/admin/materials/new/app.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/GreenvisNetworksDomein/js/app/admin/materials/new/form.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/GreenvisNetworksDomein/js/app/stap1/form.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/GreenvisNetworksDomein/js/app/admin/customerSettings/form.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/GreenvisNetworksDomein/js/app/admin/materials/edit/form.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/build.ps1",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/GreenvisNetworksDomein/js/app/stap5/pages/page9calculationResultb.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/GreenvisNetworksDomein/js/app/stap5/pages/page8calculationResult.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/GreenvisNetworksDomein/js/app/admin/customerSettings/app.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/GreenvisNetworksDomein/js/app/stap5/view.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/js/forms/loadModel.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/js/forms/controllers/saver.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/js/forms/controllers/saveAndRedirect.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/js/i18n/i18n.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/js/i18n/translate.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/js/forms/validationRules.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/js/i18n/ajaxInit.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/GreenvisNetworksDomein/js/app/stap1/saveAndRedirect.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/js/tools/getAjaxData.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/js/forms/viewModels/feedbackViewModel.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/js/i18n/dummyInit.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/GreenvisNetworksDomein/js/app/stap2/viewModels/formDataViewModel.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/js/forms/viewElements/createModelFieldSelect.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/GreenvisNetworksDomein/js/domain/pipeNetworkModel.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/GreenvisNetworksDomein/js/domain/projectSettingsModel.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/GreenvisNetworksDomein/js/app/stap2/form.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/GreenvisNetworksDomein/js/app/stap2/app.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/js/forms/controllers/modelValidator.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/js/forms/controllers/prefixAllPropertiesWith.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/js/forms/controllers/removePrefixFromAllProperties.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/GreenvisNetworksDomein/js/app/stap2/viewModels/formDataProjectSettingsViewModel.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/GreenvisNetworksDomein/js/app/stap2/viewModels/formDataPipeNetworkViewModel.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/js/forms/viewElements/createModelCheckbox.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/js/forms/viewElements/createModelDatePicker.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/js/forms/viewElements/createModelFieldInput.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/js/forms/viewElements/triggerUpdate.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/js/forms/viewElements/createModelRadioInput.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/js/tools/observable.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/GreenvisNetworksDomein/js/domain/projectModel.js",
+		"/D/Projects/greenvis-networks/greenvis-networks-generiek/Source/js/forms/viewElements/createModelRadio.js"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"data",
+			".get('IsConsumer')",
+			"pipe.model.get('ConsumerPower')",
+			"<input",
+			"keyseperator",
+			"$.ajax",
+			"getAjaxData",
+			"(){}};\n",
+			"getAjaxData",
+			"$.ajax",
+			"});",
+			"t",
+			"t(",
+			"}\n",
+			"                                ",
+			"pipeNetworkDataViewModel",
+			"this",
+			"Model",
+			"model",
+			"this",
+			" \n"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "planten.html",
+					"settings":
+					{
+						"buffer_size": 9868,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7937,
+								7937
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"loadmod",
+				"js/forms/loadModel.js"
+			],
+			[
+				"save",
+				"js/forms/controllers/saveAndRedirect.js"
+			],
+			[
+				"saver",
+				"js/forms/controllers/saver.js"
+			],
+			[
+				"feedba",
+				"js/forms/viewModels/feedbackViewModel.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 310.0,
+	"status_bar_visible": true
+}
